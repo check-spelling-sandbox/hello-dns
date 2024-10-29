@@ -274,7 +274,7 @@ This is then followed by the binary representation of the current IPv6
 address of www.ietf.org, 2400:cb00:2048:1::6814:55.
 
 If there had been further answers, these would follow this first one, and
-the ANCOUNT would have been higher than 1. If there had been data in the
+the ANCOUNT would have been greater than 1. If there had been data in the
 'authoritative' and 'additional' sections, that would follow here too, with
 the corresponding adjustments to 'NSCOUNT' and 'ARCOUNT' fields. More about
 these sections later.
