@@ -208,7 +208,7 @@ struct DNSNode
   DNSNode(){}
   DNSNode(const DNSLabel& lab, DNSNode* parent) : d_name(lab), d_parent(parent) {}
   ~DNSNode();
-  //! This is the key function that finds names, returns where it found them and if any zonecuts were passsed
+  //! This is the key function that finds names, returns where it found them and if any zonecuts were passed
   const DNSNode* find(DNSName& name, DNSName& last, bool wildcards=false, const DNSNode** passedZonecut=0, const DNSNode** passedWcard=0) const;
 
   //! This is an idempotent way to add a node to a DNS tree
