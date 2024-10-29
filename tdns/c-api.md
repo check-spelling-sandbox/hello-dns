@@ -98,7 +98,7 @@ And TXT records:
 
 # Full code
 The full code of these examples can be found on
-[GitHub](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/tdns-c-test.c).
+[GitHub](https://github.com/Habbie/hello-dns/blob/master/tdns/tdns-c-test.c).
 
 <script>
 window.markdeepOptions={};

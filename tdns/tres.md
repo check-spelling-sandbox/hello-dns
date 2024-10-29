@@ -7,7 +7,7 @@ Note: this page is part of the
 # teaching Resolver
 Welcome to `tres`, a 'from scratch' teaching resolver,
 implementing a basic resolver in 500 lines of code.  Code is
-[here](https://github.com/ahupowerdns/hello-dns/tree/master/tdns).  To
+[here](https://github.com/Habbie/hello-dns/tree/master/tdns).  To
 compile, see the end of this document.
 
 Even though the 'hello-dns' documents describe how basic DNS works,  nothing
@@ -43,7 +43,7 @@ achieve can be found [here](intro.md.html).
 `tres` can be used to browse the web successfully.  All popular domains
 work.  The code is not quite in a teachable state yet and still contains
 some ugly bits.  But well worth [a
-read](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/tres.cc).
+read](https://github.com/Habbie/hello-dns/blob/master/tdns/tres.cc).
 
 # Infrastructure
 `tres` uses the same DNS packet parsing/generating code as the `tdns`
@@ -94,7 +94,7 @@ This requires a recent compiler version that supports C++ 2014. If you
 encounter problems, please let me know (see above for address details).
 
 ```
-$ git clone --recursive https://github.com/ahupowerdns/hello-dns.git
+$ git clone --recursive https://github.com/Habbie/hello-dns.git
 $ cd hello-dns/tdns
 $ make -j4 tres
 $ ./tres www.powerdns.org A

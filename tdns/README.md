@@ -9,7 +9,7 @@ Welcome to tdns, a 'from scratch' teaching DNS library.  Based on `tdns`,
 [`tauth`](tauth.md.html) and [`tres`](tres.md.html) implement all of [basic
 DNS](../basic.md.html) and large parts of DNSSEC in ~~2000~~ ~~3000~~ 3100
 lines of code.  Code is
-[here](https://github.com/ahupowerdns/hello-dns/tree/master/tdns).  To
+[here](https://github.com/Habbie/hello-dns/tree/master/tdns).  To
 compile, see the end of this document.
 
 Even though the 'hello-dns' documents describe how basic DNS works, and how
@@ -40,13 +40,13 @@ Non-goals are:
 A more narrative explanation of what `tdns` is and what we hope it will
 achieve can be found [here](intro.md.html).
 
-The code for `tdns` can be found on [GitHub](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/) and is also documented 
+The code for `tdns` can be found on [GitHub](https://github.com/Habbie/hello-dns/blob/master/tdns/) and is also documented 
 using [Doxygen](codedocs/html).
 
 # Objects in `tdns`
-These are found in [dns-storage.hh](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/dns-storage.hh)
+These are found in [dns-storage.hh](https://github.com/Habbie/hello-dns/blob/master/tdns/dns-storage.hh)
 and
-[dns-storage.cc](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/dns-storage.hh).
+[dns-storage.cc](https://github.com/Habbie/hello-dns/blob/master/tdns/dns-storage.hh).
 
 ## DNSLabel
 The most basic object in `tdns` is DNSLabel. `www.powerdns.com` consists of
@@ -206,8 +206,8 @@ has a `toString()` method for human friendly output.
 
 
 # Parsing and generating DNS Messages
-This code is in [dnsmessages.cc](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/dnsmessages.cc)
-and [dnsmessages.hh](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/dnsmessages.hh).
+This code is in [dnsmessages.cc](https://github.com/Habbie/hello-dns/blob/master/tdns/dnsmessages.cc)
+and [dnsmessages.hh](https://github.com/Habbie/hello-dns/blob/master/tdns/dnsmessages.hh).
 
 ## `RRGen`s: dealing with all the record types
 DNS knows many record types, so we need a unified interface that can pass
@@ -270,7 +270,7 @@ returns record details and a smart pointer to an `RRGen` instance (as
 described above). 
 
 A good example of how `DNSMessageReader` works can be found in
-[`tdig.cc`](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/dns-storage.hh).
+[`tdig.cc`](https://github.com/Habbie/hello-dns/blob/master/tdns/dns-storage.hh).
 
 ## DNSMessageWriter
 This class creates DNS messages, and in its constructor it needs to know the
@@ -293,9 +293,9 @@ Writing actual records to DNSMessageWriter proceeds via `putRR()` which
 serializes `RRGen` instances to the message.
 
 Samples of how to do this can be found in
-[tres.cc](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/dns-storage.hh)
+[tres.cc](https://github.com/Habbie/hello-dns/blob/master/tdns/dns-storage.hh)
 and
-[tauth.cc](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/dns-storage.hh).
+[tauth.cc](https://github.com/Habbie/hello-dns/blob/master/tdns/dns-storage.hh).
 
 ### Compression
 DNS compression is unreasonably difficult to get right. In what happens to
@@ -322,7 +322,7 @@ this in `serialize()`.
 # Internals
 `tdns` uses several small pieces of code not core to dns:
 
- * [nenum](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/nenum.hh)
+ * [nenum](https://github.com/Habbie/hello-dns/blob/master/tdns/nenum.hh)
    this is a simple 'named ENUM' construct that enables the printing of
    DNSName::A
  * [Simplesocket](https://github.com/ahupowerdns/simplesocket) a small set
@@ -334,7 +334,7 @@ This requires a recent compiler version that supports C++ 2014. If you
 encounter problems, please let me know (see above for address details).
 
 ```
-$ git clone https://github.com/ahupowerdns/hello-dns.git
+$ git clone https://github.com/Habbie/hello-dns.git
 $ cd hello-dns/tdns
 $ git submodule init
 $ git submodule update

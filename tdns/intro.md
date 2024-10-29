@@ -9,7 +9,7 @@ Note: this page is part of the
 Welcome to tdns, a 'from scratch' teaching authoritative server,
 implementing all of [basic DNS](https://powerdns.org/hello-dns/basic.md.html) in
 ~~1400~~ ~~1500~~ 1600 lines of code.  Code is
-[here](https://github.com/ahupowerdns/hello-dns/tree/master/tdns).  To
+[here](https://github.com/Habbie/hello-dns/tree/master/tdns).  To
 compile, see [here](https://powerdns.org/hello-dns/tdns/README.md.html).
 
 `tdns` is part of the '[hello-dns](https://powerdns.org/hello-dns)' effort
