@@ -1046,7 +1046,7 @@ json.exception.out_of_range.401 | array index 3 is out of range | The provided a
 json.exception.out_of_range.402 | array index '-' (3) is out of range | The special array index `-` in a JSON Pointer never describes a valid element of the array, but the index past the end. That is, it can only be used to add elements at this position, but not to read it.
 json.exception.out_of_range.403 | key 'foo' not found | The provided key was not found in the JSON object.
 json.exception.out_of_range.404 | unresolved reference token 'foo' | A reference token in a JSON Pointer could not be resolved.
-json.exception.out_of_range.405 | JSON pointer has no parent | The JSON Patch operations 'remove' and 'add' can not be applied to the root element of the JSON value.
+json.exception.out_of_range.405 | JSON pointer has no parent | The JSON Patch operations 'remove' and 'add' cannot be applied to the root element of the JSON value.
 json.exception.out_of_range.406 | number overflow parsing '10E1000' | A parsed number could not be stored as without changing it to NaN or INF.
 json.exception.out_of_range.407 | number overflow serializing '9223372036854775808' | UBJSON and BSON only support integer numbers up to 9223372036854775807. |
 json.exception.out_of_range.408 | excessive array size: 8658170730974374167 | The size (following `#`) of an UBJSON array or object exceeds the maximal capacity. |
@@ -8210,7 +8210,7 @@ class binary_reader
 
     @return whether string creation completed
 
-    @note We can not reserve @a len bytes for the result, because @a len
+    @note We cannot reserve @a len bytes for the result, because @a len
           may be too large. Usually, @ref unexpect_eof() detects the end of
           the input before we run out of string memory.
     */
@@ -11797,7 +11797,7 @@ class json_pointer
 
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
     */
     BasicJsonType& get_unchecked(BasicJsonType* ptr) const
     {
@@ -11873,7 +11873,7 @@ class json_pointer
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
     */
     BasicJsonType& get_checked(BasicJsonType* ptr) const
     {
@@ -11938,7 +11938,7 @@ class json_pointer
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
     */
     const BasicJsonType& get_unchecked(const BasicJsonType* ptr) const
     {
@@ -11997,7 +11997,7 @@ class json_pointer
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
     */
     const BasicJsonType& get_checked(const BasicJsonType* ptr) const
     {
@@ -19403,7 +19403,7 @@ class basic_json
 
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
 
     @liveexample{The behavior is shown in the example.,operatorjson_pointer}
 
@@ -19431,7 +19431,7 @@ class basic_json
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
 
     @liveexample{The behavior is shown in the example.,operatorjson_pointer_const}
 
@@ -19468,7 +19468,7 @@ class basic_json
     @throw out_of_range.403 if the JSON pointer describes a key of an object
     which cannot be found. See example below.
 
-    @throw out_of_range.404 if the JSON pointer @a ptr can not be resolved.
+    @throw out_of_range.404 if the JSON pointer @a ptr cannot be resolved.
     See example below.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
@@ -19511,7 +19511,7 @@ class basic_json
     @throw out_of_range.403 if the JSON pointer describes a key of an object
     which cannot be found. See example below.
 
-    @throw out_of_range.404 if the JSON pointer @a ptr can not be resolved.
+    @throw out_of_range.404 if the JSON pointer @a ptr cannot be resolved.
     See example below.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
@@ -19571,7 +19571,7 @@ class basic_json
     @return the original JSON from a flattened version
 
     @note Empty objects and arrays are flattened by @ref flatten() to `null`
-          values and can not unflattened to their original type. Apart from
+          values and cannot unflattened to their original type. Apart from
           this example, for a JSON value `j`, the following is always true:
           `j == j.flatten().unflatten()`.
 

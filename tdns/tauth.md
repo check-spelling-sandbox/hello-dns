@@ -238,7 +238,7 @@ packet: the 16 bit priority, followed by the name.
 
 
 ## A bit of fun: dynamic record contents
-Although names can not easily be dynamic within the DNS tree (either they
+Although names cannot easily be dynamic within the DNS tree (either they
 exist or they don't), contents can be changed at will. 
 
 `tdns` defines a `time.tdns.powerdns.org` node which has a `ClockTXTGen`:
