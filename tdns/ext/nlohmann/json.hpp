@@ -6454,7 +6454,7 @@ class binary_reader
 
     @note from http://stackoverflow.com/a/1001328/266378
     */
-    static constexpr bool little_endianess(int num = 1) noexcept
+    static constexpr bool little_endianness(int num = 1) noexcept
     {
         return (*reinterpret_cast<char*>(&num) == 1);
     }
@@ -8167,7 +8167,7 @@ class binary_reader
 
     @return whether conversion completed
 
-    @note This function needs to respect the system's endianess, because
+    @note This function needs to respect the system's endianness, because
           bytes in CBOR, MessagePack, and UBJSON are stored in network order
           (big endian) and therefore need reordering on little endian systems.
     */
@@ -8306,8 +8306,8 @@ class binary_reader
     /// the number of characters read
     std::size_t chars_read = 0;
 
-    /// whether we can assume little endianess
-    const bool is_little_endian = little_endianess();
+    /// whether we can assume little endianness
+    const bool is_little_endian = little_endianness();
 
     /// the SAX parser
     json_sax_t* sax = nullptr;
@@ -9586,7 +9586,7 @@ class binary_writer
     @tparam OutputIsLittleEndian Set to true if output data is
                                  required to be little endian
 
-    @note This function needs to respect the system's endianess, because bytes
+    @note This function needs to respect the system's endianness, because bytes
           in CBOR, MessagePack, and UBJSON are stored in network order (big
           endian) and therefore need reordering on little endian systems.
     */
@@ -9649,8 +9649,8 @@ class binary_writer
     }
 
   private:
-    /// whether we can assume little endianess
-    const bool is_little_endian = binary_reader<BasicJsonType>::little_endianess();
+    /// whether we can assume little endianness
+    const bool is_little_endian = binary_reader<BasicJsonType>::little_endianness();
 
     /// the output
     output_adapter_t<CharType> oa = nullptr;
