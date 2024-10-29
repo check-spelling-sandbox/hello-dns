@@ -9952,7 +9952,7 @@ boundaries compute_boundaries(FloatType value)
 //              = p1 + p2 * 2^e
 //
 // The conversion of p1 into decimal form requires a series of divisions and
-// modulos by (a power of) 10. These operations are faster for 32-bit than for
+// modulo by (a power of) 10. These operations are faster for 32-bit than for
 // 64-bit integers, so p1 should ideally fit into a 32-bit integer. This can be
 // achieved by choosing
 //
