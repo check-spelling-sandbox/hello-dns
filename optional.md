@@ -111,7 +111,7 @@ Prerequisites are constraints that must pass before any updates are processed.
 All of the constraints apply to entire RRSETs as opposed to individual RRs.
 Prerequisite failures are signalled by a response message's RCODE.
 
-Prerequiste            | Type         | Class         | Data | Failure RCODE
+Prerequisite           | Type         | Class         | Data | Failure RCODE
 -----------------------|--------------|---------------|------|--------------
 RRSET exists           | RRSET's Type | ANY (255)     | No   | NXRRSET (8)
 RRSET exists with data | RRSET's Type | RRSET's Class | Yes  | NXRRSET (8)
