@@ -13865,7 +13865,7 @@ class basic_json
     the range `[first, last)` is undefined.
     @throw invalid_iterator.204 if iterators @a first and @a last belong to a
     primitive type (number, boolean, or string), but @a first does not point
-    to the first element any more. In this case, the range `[first, last)` is
+    to the first element anymore. In this case, the range `[first, last)` is
     undefined. See example code below.
     @throw invalid_iterator.206 if iterators @a first and @a last belong to a
     null value. In this case, the range `[first, last)` is undefined.
