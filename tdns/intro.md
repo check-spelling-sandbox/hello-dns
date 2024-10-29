@@ -181,7 +181,7 @@ surprisingly well!
 
 ## Putting the tricky bits at a fundamental level
 DNS names look surprisingly like text strings, but they very much are not. 
-For starters, DNS is case insensitive in its own special way, and such rules
+For starters, DNS is case-insensitive in its own special way, and such rules
 must be obeyed for DNSSEC to ever work.
 
 Furthermore, despite appearances, DNS is 8-bit safe. This means that
@@ -189,7 +189,7 @@ individual DNS labels (usually separated by dots) can contain embedded 0
 characters, but also actual dots themselves.
 
 A lot of code 'up the stack' can be simplified by having basic types that
-are fully DNS native, like DNS Labels which are case insensitive, stored in
+are fully DNS native, like DNS Labels which are case-insensitive, stored in
 binary and length limited by themselves.
 
 Code that uses "strings" for DNS may struggle to recognize (in all places!)

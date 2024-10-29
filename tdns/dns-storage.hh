@@ -102,7 +102,7 @@ public:
     if(d_s.size() > 63)
       throw std::out_of_range("label too long");
   }
-  //! Equality and comparison are case insensitive
+  //! Equality and comparison are case-insensitive
   bool operator<(const DNSLabel& rhs) const
   {
     return std::lexicographical_compare(d_s.begin(), d_s.end(), rhs.d_s.begin(), rhs.d_s.end(), charcomp);

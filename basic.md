@@ -150,7 +150,7 @@ save a lot of pain when processing DNS names with spaces or dots in them.
 Finally, DNS queries are
 [case-insensitive](https://tools.ietf.org/html/rfc4343).  This however is
 defined rather mechanically, and limited to ASCII.  Operators do not need to know that in some
-encodings a Ü is equivalent to ü when compared case insensitively.
+encodings a Ü is equivalent to ü when compared case-insensitively.
 For DNS purposes, the fifth bit (0x20) is ignored when comparing octets
 within a-z and A-Z.
 
