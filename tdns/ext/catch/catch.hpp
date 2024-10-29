@@ -2432,7 +2432,7 @@ public:
 
     // The following functions create the actual matcher objects.
     // The user has to explicitly specify type to the function, because
-    // infering std::function<bool(T const&)> is hard (but possible) and
+    // inferring std::function<bool(T const&)> is hard (but possible) and
     // requires a lot of TMP.
     template<typename T>
     Generic::PredicateMatcher<T> Predicate(std::function<bool(T const&)> const& predicate, std::string const& description = "") {
@@ -8043,7 +8043,7 @@ namespace Matchers {
         }
         std::string CasedString::caseSensitivitySuffix() const {
             return m_caseSensitivity == CaseSensitive::No
-                   ? " (case insensitive)"
+                   ? " (case-insensitive)"
                    : std::string();
         }
 
@@ -8100,7 +8100,7 @@ namespace Matchers {
         }
 
         std::string RegexMatcher::describe() const {
-            return "matches " + ::Catch::Detail::stringify(m_regex) + ((m_caseSensitivity == CaseSensitive::Choice::Yes)? " case sensitively" : " case insensitively");
+            return "matches " + ::Catch::Detail::stringify(m_regex) + ((m_caseSensitivity == CaseSensitive::Choice::Yes)? " case-sensitively" : " case-insensitively");
         }
 
     } // namespace StdString

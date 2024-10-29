@@ -150,7 +150,7 @@ save a lot of pain when processing DNS names with spaces or dots in them.
 Finally, DNS queries are
 [case-insensitive](https://tools.ietf.org/html/rfc4343).  This however is
 defined rather mechanically, and limited to ASCII.  Operators do not need to know that in some
-encodings a Ü is equivalent to ü when compared case insensitively.
+encodings a Ü is equivalent to ü when compared case-insensitively.
 For DNS purposes, the fifth bit (0x20) is ignored when comparing octets
 within a-z and A-Z.
 
@@ -274,7 +274,7 @@ This is then followed by the binary representation of the current IPv6
 address of www.ietf.org, 2400:cb00:2048:1::6814:55.
 
 If there had been further answers, these would follow this first one, and
-the ANCOUNT would have been higher than 1. If there had been data in the
+the ANCOUNT would have been greater than 1. If there had been data in the
 'authoritative' and 'additional' sections, that would follow here too, with
 the corresponding adjustments to 'NSCOUNT' and 'ARCOUNT' fields. More about
 these sections later.

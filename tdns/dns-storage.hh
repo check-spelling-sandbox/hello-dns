@@ -102,7 +102,7 @@ public:
     if(d_s.size() > 63)
       throw std::out_of_range("label too long");
   }
-  //! Equality and comparison are case insensitive
+  //! Equality and comparison are case-insensitive
   bool operator<(const DNSLabel& rhs) const
   {
     return std::lexicographical_compare(d_s.begin(), d_s.end(), rhs.d_s.begin(), rhs.d_s.end(), charcomp);
@@ -208,7 +208,7 @@ struct DNSNode
   DNSNode(){}
   DNSNode(const DNSLabel& lab, DNSNode* parent) : d_name(lab), d_parent(parent) {}
   ~DNSNode();
-  //! This is the key function that finds names, returns where it found them and if any zonecuts were passsed
+  //! This is the key function that finds names, returns where it found them and if any zonecuts were passed
   const DNSNode* find(DNSName& name, DNSName& last, bool wildcards=false, const DNSNode** passedZonecut=0, const DNSNode** passedWcard=0) const;
 
   //! This is an idempotent way to add a node to a DNS tree

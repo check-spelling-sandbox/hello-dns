@@ -47,7 +47,7 @@ An error is indicated by a non-zero return value, in which case the error is
 available through `TDNSErrorMessage`.
 
 Actual IP addresses, IPv4 or IPv6, are returned as `struct sockaddr_storage` 
-pointers in `TDNSIpAddressess::addresses`:
+pointers in `TDNSIpAddresses::addresses`:
 
 ```
   for(int n = 0; ips->addresses[n]; ++n) {
@@ -61,7 +61,7 @@ pointers in `TDNSIpAddressess::addresses`:
   }
   freeTDNSIPAddresses(ips);
 ```
-The sequence is terminated by a 0 pointer in `addressses`. Note that the
+The sequence is terminated by a 0 pointer in `addresses`. Note that the
 answer must also be freed with `freeTDNSIPAddresses`.
 
 ## MX Records
@@ -98,7 +98,7 @@ And TXT records:
 
 # Full code
 The full code of these examples can be found on
-[GitHub](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/tdns-c-test.c).
+[GitHub](https://github.com/Habbie/hello-dns/blob/master/tdns/tdns-c-test.c).
 
 <script>
 window.markdeepOptions={};

@@ -850,7 +850,7 @@ Exceptions have ids 1xx.
 name / id                      | example message | description
 ------------------------------ | --------------- | -------------------------
 json.exception.parse_error.101 | parse error at 2: unexpected end of input; expected string literal | This error indicates a syntax error while deserializing a JSON text. The error message describes that an unexpected token (character) was encountered, and the member @a byte indicates the error position.
-json.exception.parse_error.102 | parse error at 14: missing or wrong low surrogate | JSON uses the `\uxxxx` format to describe Unicode characters. Code points above above 0xFFFF are split into two `\uxxxx` entries ("surrogate pairs"). This error indicates that the surrogate pair is incomplete or contains an invalid code point.
+json.exception.parse_error.102 | parse error at 14: missing or wrong low surrogate | JSON uses the `\uxxxx` format to describe Unicode characters. Code points above 0xFFFF are split into two `\uxxxx` entries ("surrogate pairs"). This error indicates that the surrogate pair is incomplete or contains an invalid code point.
 json.exception.parse_error.103 | parse error: code points above 0x10FFFF are invalid | Unicode supports code points up to 0x10FFFF. Code points above 0x10FFFF are invalid.
 json.exception.parse_error.104 | parse error: JSON patch must be an array of objects | [RFC 6902](https://tools.ietf.org/html/rfc6902) requires a JSON Patch document to be a JSON document that represents an array of objects.
 json.exception.parse_error.105 | parse error: operation must have string member 'op' | An operation of a JSON Patch document must contain exactly one "op" member, whose value indicates the operation to perform. Its value must be one of "add", "remove", "replace", "move", "copy", or "test"; other values are errors.
@@ -1046,7 +1046,7 @@ json.exception.out_of_range.401 | array index 3 is out of range | The provided a
 json.exception.out_of_range.402 | array index '-' (3) is out of range | The special array index `-` in a JSON Pointer never describes a valid element of the array, but the index past the end. That is, it can only be used to add elements at this position, but not to read it.
 json.exception.out_of_range.403 | key 'foo' not found | The provided key was not found in the JSON object.
 json.exception.out_of_range.404 | unresolved reference token 'foo' | A reference token in a JSON Pointer could not be resolved.
-json.exception.out_of_range.405 | JSON pointer has no parent | The JSON Patch operations 'remove' and 'add' can not be applied to the root element of the JSON value.
+json.exception.out_of_range.405 | JSON pointer has no parent | The JSON Patch operations 'remove' and 'add' cannot be applied to the root element of the JSON value.
 json.exception.out_of_range.406 | number overflow parsing '10E1000' | A parsed number could not be stored as without changing it to NaN or INF.
 json.exception.out_of_range.407 | number overflow serializing '9223372036854775808' | UBJSON and BSON only support integer numbers up to 9223372036854775807. |
 json.exception.out_of_range.408 | excessive array size: 8658170730974374167 | The size (following `#`) of an UBJSON array or object exceeds the maximal capacity. |
@@ -1166,7 +1166,7 @@ enum class value_t : std::uint8_t
     number_integer,   ///< number value (signed integer)
     number_unsigned,  ///< number value (unsigned integer)
     number_float,     ///< number value (floating-point)
-    discarded         ///< discarded by the the parser callback function
+    discarded         ///< discarded by the parser callback function
 };
 
 /*!
@@ -6454,7 +6454,7 @@ class binary_reader
 
     @note from http://stackoverflow.com/a/1001328/266378
     */
-    static constexpr bool little_endianess(int num = 1) noexcept
+    static constexpr bool little_endianness(int num = 1) noexcept
     {
         return (*reinterpret_cast<char*>(&num) == 1);
     }
@@ -8167,7 +8167,7 @@ class binary_reader
 
     @return whether conversion completed
 
-    @note This function needs to respect the system's endianess, because
+    @note This function needs to respect the system's endianness, because
           bytes in CBOR, MessagePack, and UBJSON are stored in network order
           (big endian) and therefore need reordering on little endian systems.
     */
@@ -8210,7 +8210,7 @@ class binary_reader
 
     @return whether string creation completed
 
-    @note We can not reserve @a len bytes for the result, because @a len
+    @note We cannot reserve @a len bytes for the result, because @a len
           may be too large. Usually, @ref unexpect_eof() detects the end of
           the input before we run out of string memory.
     */
@@ -8306,8 +8306,8 @@ class binary_reader
     /// the number of characters read
     std::size_t chars_read = 0;
 
-    /// whether we can assume little endianess
-    const bool is_little_endian = little_endianess();
+    /// whether we can assume little endianness
+    const bool is_little_endian = little_endianness();
 
     /// the SAX parser
     json_sax_t* sax = nullptr;
@@ -9586,7 +9586,7 @@ class binary_writer
     @tparam OutputIsLittleEndian Set to true if output data is
                                  required to be little endian
 
-    @note This function needs to respect the system's endianess, because bytes
+    @note This function needs to respect the system's endianness, because bytes
           in CBOR, MessagePack, and UBJSON are stored in network order (big
           endian) and therefore need reordering on little endian systems.
     */
@@ -9649,8 +9649,8 @@ class binary_writer
     }
 
   private:
-    /// whether we can assume little endianess
-    const bool is_little_endian = binary_reader<BasicJsonType>::little_endianess();
+    /// whether we can assume little endianness
+    const bool is_little_endian = binary_reader<BasicJsonType>::little_endianness();
 
     /// the output
     output_adapter_t<CharType> oa = nullptr;
@@ -9952,7 +9952,7 @@ boundaries compute_boundaries(FloatType value)
 //              = p1 + p2 * 2^e
 //
 // The conversion of p1 into decimal form requires a series of divisions and
-// modulos by (a power of) 10. These operations are faster for 32-bit than for
+// modulo by (a power of) 10. These operations are faster for 32-bit than for
 // 64-bit integers, so p1 should ideally fit into a 32-bit integer. This can be
 // achieved by choosing
 //
@@ -10005,7 +10005,7 @@ inline cached_power get_cached_power_for_binary_exponent(int e)
     //      ==> 2^(q - 1 + alpha) <= c * 2^(e + q)
     //      ==> 2^(alpha - e - 1) <= c
     //
-    // If c were an exakt power of ten, i.e. c = 10^k, one may determine k as
+    // If c were an exact power of ten, i.e. c = 10^k, one may determine k as
     //
     //      k = ceil( log_10( 2^(alpha - e - 1) ) )
     //        = ceil( (alpha - e - 1) * log_10(2) )
@@ -11797,7 +11797,7 @@ class json_pointer
 
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
     */
     BasicJsonType& get_unchecked(BasicJsonType* ptr) const
     {
@@ -11873,7 +11873,7 @@ class json_pointer
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
     */
     BasicJsonType& get_checked(BasicJsonType* ptr) const
     {
@@ -11938,7 +11938,7 @@ class json_pointer
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
     */
     const BasicJsonType& get_unchecked(const BasicJsonType* ptr) const
     {
@@ -11997,7 +11997,7 @@ class json_pointer
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
     */
     const BasicJsonType& get_checked(const BasicJsonType* ptr) const
     {
@@ -13865,7 +13865,7 @@ class basic_json
     the range `[first, last)` is undefined.
     @throw invalid_iterator.204 if iterators @a first and @a last belong to a
     primitive type (number, boolean, or string), but @a first does not point
-    to the first element any more. In this case, the range `[first, last)` is
+    to the first element anymore. In this case, the range `[first, last)` is
     undefined. See example code below.
     @throw invalid_iterator.206 if iterators @a first and @a last belong to a
     null value. In this case, the range `[first, last)` is undefined.
@@ -17451,7 +17451,7 @@ class basic_json
 
     @throw type_error.309 if called on JSON values other than objects; example:
     `"cannot use insert() with string"`
-    @throw invalid_iterator.202 if iterator @a first or @a last does does not
+    @throw invalid_iterator.202 if iterator @a first or @a last does not
     point to an object; example: `"iterators first and last must point to
     objects"`
     @throw invalid_iterator.210 if @a first and @a last do not belong to the
@@ -17534,7 +17534,7 @@ class basic_json
     /*!
     @brief updates a JSON object from another object, overwriting existing keys
 
-    Inserts all values from from range `[first, last)` and overwrites existing
+    Inserts all values from range `[first, last)` and overwrites existing
     keys.
 
     @param[in] first begin of the range of elements to insert
@@ -17542,7 +17542,7 @@ class basic_json
 
     @throw type_error.312 if called on JSON values other than objects; example:
     `"cannot use update() with string"`
-    @throw invalid_iterator.202 if iterator @a first or @a last does does not
+    @throw invalid_iterator.202 if iterator @a first or @a last does not
     point to an object; example: `"iterators first and last must point to
     objects"`
     @throw invalid_iterator.210 if @a first and @a last do not belong to the
@@ -19403,7 +19403,7 @@ class basic_json
 
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
 
     @liveexample{The behavior is shown in the example.,operatorjson_pointer}
 
@@ -19419,7 +19419,7 @@ class basic_json
 
     Uses a JSON pointer to retrieve a reference to the respective JSON value.
     No bound checking is performed. The function does not change the JSON
-    value; no `null` values are created. In particular, the the special value
+    value; no `null` values are created. In particular, the special value
     `-` yields an exception.
 
     @param[in] ptr  JSON pointer to the desired element
@@ -19431,7 +19431,7 @@ class basic_json
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the JSON pointer cannot be resolved
 
     @liveexample{The behavior is shown in the example.,operatorjson_pointer_const}
 
@@ -19468,7 +19468,7 @@ class basic_json
     @throw out_of_range.403 if the JSON pointer describes a key of an object
     which cannot be found. See example below.
 
-    @throw out_of_range.404 if the JSON pointer @a ptr can not be resolved.
+    @throw out_of_range.404 if the JSON pointer @a ptr cannot be resolved.
     See example below.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
@@ -19511,7 +19511,7 @@ class basic_json
     @throw out_of_range.403 if the JSON pointer describes a key of an object
     which cannot be found. See example below.
 
-    @throw out_of_range.404 if the JSON pointer @a ptr can not be resolved.
+    @throw out_of_range.404 if the JSON pointer @a ptr cannot be resolved.
     See example below.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
@@ -19571,7 +19571,7 @@ class basic_json
     @return the original JSON from a flattened version
 
     @note Empty objects and arrays are flattened by @ref flatten() to `null`
-          values and can not unflattened to their original type. Apart from
+          values and cannot unflattened to their original type. Apart from
           this example, for a JSON value `j`, the following is always true:
           `j == j.flatten().unflatten()`.
 

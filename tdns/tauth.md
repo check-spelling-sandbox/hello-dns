@@ -28,7 +28,7 @@ Known broken:
 
 The code is not quite in a teachable state yet and still contains ugly bits. 
 But well worth [a
-read](https://github.com/ahupowerdns/hello-dns/tree/master/tdns).
+read](https://github.com/Habbie/hello-dns/tree/master/tdns).
 
 # Layout
 Key to a good DNS implementation is having a faithful DNS storage model,
@@ -129,7 +129,7 @@ multiple 'generator' parameters, more about which later.
 www.fra.ietf.org, use `newzone->add({"www", "fra", "ietf", "org"})`.
 
 Within `tdns`, the sample `powerdns.org` zone is populated within
-[contents.cc](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/contents.cc).
+[contents.cc](https://github.com/Habbie/hello-dns/blob/master/tdns/contents.cc).
 
 Finding nodes in the tree uses a slightly more complicated method called
 `find`. Unlike `add` it will not modify the tree, even though it has in
@@ -188,9 +188,9 @@ This attaches SOA, NS and MX records to the apex of a zone, and defines a
 `server1` node that is also referenced in the MX record. 
 
 This code can be found in
-[record-types.cc](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/record-types.cc)
+[record-types.cc](https://github.com/Habbie/hello-dns/blob/master/tdns/record-types.cc)
 and
-[record-types.hh](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/record-types.cc).
+[record-types.hh](https://github.com/Habbie/hello-dns/blob/master/tdns/record-types.cc).
 
 Since there are many record types, it is imperative that adding a new one
 needs to happen in only one place. Within `tauth`, it actually requires two
@@ -238,7 +238,7 @@ packet: the 16 bit priority, followed by the name.
 
 
 ## A bit of fun: dynamic record contents
-Although names can not easily be dynamic within the DNS tree (either they
+Although names cannot easily be dynamic within the DNS tree (either they
 exist or they don't), contents can be changed at will. 
 
 `tdns` defines a `time.tdns.powerdns.org` node which has a `ClockTXTGen`:
@@ -272,7 +272,7 @@ As noted in the [basic DNS](../basic.md.html) and
 algorithm can be simplified for a pure authoritative server.
 
 ## Finding the right zone and node
-In [tdns.cc](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/tdns.cc) , processing starts like this:
+In [tdns.cc](https://github.com/Habbie/hello-dns/blob/master/tdns/tdns.cc) , processing starts like this:
 
 ```
 1	DNSName zonename;
@@ -533,7 +533,7 @@ follows:
 ```
 
 Note: this code, in `tcpClientThread` of
-[tdns.cc](https://github.com/ahupowerdns/hello-dns/blob/master/tdns/record-types.cc)
+[tdns.cc](https://github.com/Habbie/hello-dns/blob/master/tdns/record-types.cc)
 does not yet implement best TCP practices on timeouts and keeping open
 connections.
 

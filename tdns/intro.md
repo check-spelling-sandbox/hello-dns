@@ -9,7 +9,7 @@ Note: this page is part of the
 Welcome to tdns, a 'from scratch' teaching authoritative server,
 implementing all of [basic DNS](https://powerdns.org/hello-dns/basic.md.html) in
 ~~1400~~ ~~1500~~ 1600 lines of code.  Code is
-[here](https://github.com/ahupowerdns/hello-dns/tree/master/tdns).  To
+[here](https://github.com/Habbie/hello-dns/tree/master/tdns).  To
 compile, see [here](https://powerdns.org/hello-dns/tdns/README.md.html).
 
 `tdns` is part of the '[hello-dns](https://powerdns.org/hello-dns)' effort
@@ -181,7 +181,7 @@ surprisingly well!
 
 ## Putting the tricky bits at a fundamental level
 DNS names look surprisingly like text strings, but they very much are not. 
-For starters, DNS is case insensitive in its own special way, and such rules
+For starters, DNS is case-insensitive in its own special way, and such rules
 must be obeyed for DNSSEC to ever work.
 
 Furthermore, despite appearances, DNS is 8-bit safe. This means that
@@ -189,7 +189,7 @@ individual DNS labels (usually separated by dots) can contain embedded 0
 characters, but also actual dots themselves.
 
 A lot of code 'up the stack' can be simplified by having basic types that
-are fully DNS native, like DNS Labels which are case insensitive, stored in
+are fully DNS native, like DNS Labels which are case-insensitive, stored in
 binary and length limited by themselves.
 
 Code that uses "strings" for DNS may struggle to recognize (in all places!)

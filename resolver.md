@@ -90,7 +90,7 @@ and terminate the algorithm.
 
 # Security
 At every point a resolver must be vigilant to not store data coming from an
-authoritative server that can not be trusted to provide that data.
+authoritative server that cannot be trusted to provide that data.
 
 In addition, if a cache is used, care must be taken that an authoritative
 server must not be allowed to 'extend its own authority' infinitely. This is
