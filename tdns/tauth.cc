@@ -319,7 +319,7 @@ void udpThread(ComboAddress local, Socket* sock, const DNSNode* zones)
    This function is called to do additional processing on records we encountered 
    earlier that would benefit. This includes MX and NS records.
 
-   Note that this function will only ook within 'bestzone', the best zone we had 
+   Note that this function will only look within 'bestzone', the best zone we had 
    for the original query. This means we will not look at potentially helpful 
    records in other zones. RFCs tell us that resolvers should not use/trust such
    out of zone data anyhow, but no RFC tells us we should not add that data.
